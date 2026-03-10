@@ -352,9 +352,14 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity 2022.3.61f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity 2022.3.61f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/Scripts/Assault.cs"
 "Assets/Scripts/Bat.cs"
+"Assets/Scripts/Grenade.cs"
+"Assets/Scripts/Pistol.cs"
+"Assets/Scripts/Revolver.cs"
 "Assets/Scripts/Rifle.cs"
 "Assets/Scripts/Weapon.cs"
+"Assets/Scripts/WeaponManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+
