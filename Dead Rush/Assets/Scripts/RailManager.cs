@@ -11,7 +11,7 @@ public class RailManager : MonoBehaviour
     {
         for (int i = 0; i < rails.Count; i++)
         {
-            rails[i].transform.Translate(speed * Vector3.back * Time.deltaTime);
+            rails[i].transform.Translate(speed * Vector3.back * Time.deltaTime, Space.World);
         }
     }
 }
