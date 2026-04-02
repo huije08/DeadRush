@@ -1,43 +1,50 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace littleDog
+
+[RequireComponent(typeof(CharacterController))]
+public class PlayerMovement : MonoBehaviour
 {
-    [RequireComponent(typeof(CharacterController))]
-    public class PlayerMovement : MonoBehaviour
+    [SerializeField] public float forwardSpeed = 10f;
+    [SerializeField] public float horizontalSpeed = 7f;
+
+    
+    [SerializeField] public float horizontalLimit = 5f;
+
+    [SerializeField] public float tiltAmount = 10f;
+    [SerializeField] public float tiltSmooth = 5f;
+
+    private CharacterController controller;
+    private float currentTilt = 0f;
+
+    void Start()
     {
+        controller = GetComponent<CharacterController>();
+    }
 
-        private CharacterController controller;
-        public float speed = 12f;
-        public float gravity = -9.81f;
-        public float JumpHight = 3;
-         Vector3 V;
-        private void Awake()
-        {
-            controller = gameObject.GetComponent<CharacterController>();
-        }
+    void Update()
+    {
+        // 입력 받기
+        float xInput = Input.GetAxis("Horizontal");
 
-        // Update is called once per frame
-        void Update()
-        {
-             if (MouseLook.CanMove == false) return;
-            if (controller.isGrounded && V.y < 0)
-            {
-                V.y = -2f;
-            }
-            float X = Input.GetAxis("Horizontal");
-            float Z = Input.GetAxis("Vertical");
-            Vector3 M = transform.right * X + transform.forward * Z;
-            controller.Move(M * speed * Time.deltaTime);
-            if (Input.GetButtonDown("Jump"))
-            {
-                V.y = Mathf.Sqrt(JumpHight * -2f * gravity);
-            }
-            V.y += gravity * Time.deltaTime;
-            controller.Move(V * Time.deltaTime);
+        // 이동 벡터
+        float xMove = xInput * horizontalSpeed;
+        float zMove = forwardSpeed;
 
+        Vector3 move = new Vector3(xMove, 0, zMove);
 
-        }
+        // 이동 적용
+        controller.Move(move * Time.deltaTime);
 
+        // 좌우 제한
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -horizontalLimit, horizontalLimit);
+        transform.position = pos;
+
+        // 기울기 (부드럽게)
+        float targetTilt = -xInput * tiltAmount;
+        currentTilt = Mathf.Lerp(currentTilt, targetTilt, Time.deltaTime * tiltSmooth);
+
+        transform.rotation = Quaternion.Euler(0, 0, currentTilt);
     }
 }

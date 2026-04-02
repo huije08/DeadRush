@@ -650,9 +650,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -15.947937, y: -16.374876, z: -0.07122837}
+    m_Target: {x: 6.039217, y: 7.9491425, z: 2.794077}
     speed: 2
-    m_Value: {x: -15.947937, y: -16.374876, z: -0.07122837}
+    m_Value: {x: 6.039217, y: 7.9491425, z: 2.794077}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -698,13 +698,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.40151978, y: -0.23341192, z: 0.1066067, w: 0.8792101}
+    m_Target: {x: 0.395903, y: -0.43399507, z: 0.22069612, w: 0.7786452}
     speed: 2
-    m_Value: {x: -0.40151975, y: 0.23341191, z: -0.1066067, w: -0.8792101}
+    m_Value: {x: 0.39504728, y: -0.43313769, z: 0.21944301, w: 0.77985525}
   m_Size:
-    m_Target: 19.565659
+    m_Target: 12.098231
     speed: 2
-    m_Value: 19.565659
+    m_Value: 12.098231
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -865,9 +865,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 8af9ffff
-      m_LastClickedID: -1654
-      m_ExpandedIDs: 2efbffff
+      m_SelectedIDs: c25b0000
+      m_LastClickedID: 23490
+      m_ExpandedIDs: 6ec3ffff2efbffffb65b0000de5b0000ee5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 274}
+    scrollPos: {x: 0, y: 264}
     m_SelectedIDs: e8610000
     m_LastClickedID: 25064
     m_ExpandedIDs: 0000000096610000986100009a6100009c6100009e610000a0610000a2610000a4610000a6610000a8610000aa610000ac610000ae61000000ca9a3b
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300009c660000a06b000096670000186c0000306c0000466c0000be6c0000526c0000966c0000a66c0000c26c00005a6c0000d684000078870000088700003a840000c083000000850000288500009e830000108a00009c8300005889000066830000ae840000f68b000024840000968c00007084000082850000928500005a690000a6650000d46700006e6500006a650000f666000014660000f4700000527b00004a7b00007672000058720000788c000034760000ea750000f67500009075000070940000f6730000026300007a5b0000045c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
