@@ -358,7 +358,6 @@
 "Assets/Scripts/Pistol.cs"
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/RailManager.cs"
-"Assets/Scripts/RailTrigger.cs"
 "Assets/Scripts/Revolver.cs"
 "Assets/Scripts/Rifle.cs"
 "Assets/Scripts/Weapon.cs"

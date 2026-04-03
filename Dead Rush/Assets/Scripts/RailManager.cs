@@ -2,45 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailManager : MonoBehaviour
+public class TileManager : MonoBehaviour
 {
-    public GameObject[] rails;   // 레일 프리팹들
-    public float railLength = 30f;
+    public GameObject[] tiles;   // 맵 프리팹 4개
+    public Transform player;
 
-    private float spawnZ = 0;
-    private List<GameObject> activeRails = new List<GameObject>();
+    public float tileLength = 30f;
+    public int tilesOnScreen = 6;
 
-    public void SpawnRail()
+    private float spawnZ = 0f;
+    private List<GameObject> activeTiles = new List<GameObject>();
+
+    void Start()
     {
-        int index = Random.Range(0, rails.Length);
+        // 시작 타일 깔기
+        for (int i = 0; i < tilesOnScreen; i++)
+        {
+            SpawnTile(i == 0 ? 0 : Random.Range(0, tiles.Length));
+        }
+    }
 
-        GameObject newRail = Instantiate(
-            rails[index],
+    void Update()
+    {
+        // 플레이어가 앞으로 일정 거리 오면 새 타일 생성
+        if (player.position.z - 60 > spawnZ - (tilesOnScreen * tileLength))
+        {
+            SpawnTile(Random.Range(0, tiles.Length));
+            DeleteTile();
+        }
+    }
+
+    void SpawnTile(int index)
+    {
+        GameObject go = Instantiate(
+            tiles[index],
             Vector3.forward * spawnZ,
             Quaternion.identity
         );
 
-        // 트리거 연결
-        RailTrigger trigger = newRail.GetComponentInChildren<RailTrigger>();
-        trigger.manager = this;
-
-        activeRails.Add(newRail);
-        spawnZ += railLength;
-
-        // 오래된 레일 삭제
-        if (activeRails.Count > 6)
-        {
-            Destroy(activeRails[0]);
-            activeRails.RemoveAt(0);
-        }
+        activeTiles.Add(go);
+        spawnZ += tileLength;
     }
 
-    void Start()
+    void DeleteTile()
     {
-        // 시작 레일 미리 생성
-        for (int i = 0; i < 6; i++)
-        {
-            SpawnRail();
-        }
+        Destroy(activeTiles[0]);
+        activeTiles.RemoveAt(0);
     }
 }
